@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+
+	<context-param>
+		<param-name>org.eclipse.rap.applicationConfiguration</param-name>
+		<param-value>net.lopezbobeda.rap.examples.mail.BasicApplication</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>net.lopezbobeda.rap.examples.mail.MyListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>fileServlet</servlet-name>
+		<servlet-class>net.lopezbobeda.rap.examples.mail.FileServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>rwtServlet</servlet-name>
+		<servlet-class>org.eclipse.rap.rwt.engine.RWTServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>rwtServlet</servlet-name>
+		<url-pattern>/mail</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>fileServlet</servlet-name>
+		<url-pattern>/rwt-resources/*</url-pattern>
+	</servlet-mapping>
+</web-app> 
